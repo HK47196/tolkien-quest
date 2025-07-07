@@ -1,0 +1,622 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Times New Roman', Times, serif;
+	background-color: #f0f0f0;
+	padding: 30px;
+	line-height: 1.2;
+}
+
+#app {
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
+.character-sheet {
+	background-color: #e8e8e8;
+	border: 3px solid #333;
+	padding: 15px;
+	box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.sheet-header {
+	border-bottom: 2px solid #333;
+	margin-bottom: 15px;
+	padding-bottom: 8px;
+}
+
+.character-record {
+	background-color: #333;
+	color: white;
+	padding: 8px 15px;
+	font-weight: bold;
+	font-size: 24px;
+	display: inline-block;
+	margin-bottom: 8px;
+}
+
+.header-fields {
+	display: flex;
+	gap: 30px;
+	align-items: center;
+}
+
+.name-field {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 21px;
+	flex: 1;
+}
+
+.name-field label {
+	font-weight: bold;
+}
+
+.name-field input {
+	flex: 1;
+}
+
+.race-field {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 21px;
+}
+
+.race-field label {
+	font-weight: bold;
+}
+
+.race-select {
+	border: none;
+	border-bottom: 2px solid #333;
+	background: transparent;
+	padding: 0 8px;
+	font-size: 18px;
+	font-family: 'Times New Roman', Times, serif;
+	outline: none;
+}
+
+.race-select:focus {
+	background-color: #f8f8f8;
+}
+
+.race-description {
+	background-color: #e8e8e8;
+	border: 2px solid #666;
+	padding: 15px;
+	margin: 15px 0;
+	font-size: 18px;
+	line-height: 1.4;
+	display: none;
+}
+
+.race-description.show {
+	display: block;
+}
+
+.race-description strong {
+	font-weight: bold;
+}
+
+.main-content {
+	display: flex;
+	gap: 30px;
+}
+
+.left-column {
+	flex: 1;
+}
+
+.right-column {
+	width: 300px;
+}
+
+h3 {
+	background-color: #d0d0d0;
+	border: 2px solid #333;
+	padding: 3px 8px;
+	font-size: 21px;
+	margin-bottom: 8px;
+}
+
+.stats-section {
+	margin-bottom: 23px;
+}
+
+.stats-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 15px;
+}
+
+.stats-table th,
+.stats-table td {
+	border: 2px solid #666;
+	padding: 3px 8px;
+	font-size: 18px;
+}
+
+.stats-table th {
+	background-color: #d8d8d8;
+	font-weight: normal;
+	text-align: center;
+}
+
+.stats-table td:first-child {
+	background-color: #e0e0e0;
+	font-weight: bold;
+}
+
+.stat-input {
+	width: 100%;
+	border: none;
+	background: transparent;
+	text-align: center;
+	font-size: 18px;
+}
+
+.endurance-section {
+	display: flex;
+	align-items: center;
+	margin-bottom: 8px;
+	font-size: 18px;
+}
+
+.endurance-label {
+	font-weight: bold;
+	margin-right: 8px;
+}
+
+.endurance-value {
+	border-bottom: 2px solid #333;
+	padding: 0 15px;
+	margin-right: 15px;
+}
+
+.endurance-formula {
+	font-size: 16px;
+}
+
+.damage-taken {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 18px;
+}
+
+.damage-taken label {
+	font-weight: bold;
+}
+
+.underline-input {
+	border: none;
+	border-bottom: 2px solid #333;
+	background: transparent;
+	padding: 0 8px;
+	font-size: 18px;
+	width: 225px;
+}
+
+.skills-section {
+	margin-bottom: 23px;
+}
+
+.skills-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 15px;
+}
+
+.skills-table th,
+.skills-table td {
+	border: 2px solid #666;
+	padding: 2px 3px;
+	text-align: center;
+}
+
+.skills-table th {
+	background-color: #d8d8d8;
+	font-weight: normal;
+	font-size: 13px;
+}
+
+.skills-header {
+	background-color: #d0d0d0;
+	font-weight: bold;
+	font-size: 21px !important;
+	vertical-align: middle;
+}
+
+.skills-table td:first-child {
+	text-align: left;
+	background-color: #e0e0e0;
+	font-weight: bold;
+	padding-left: 8px;
+}
+
+.skills-table input {
+	width: 45px;
+	border: none;
+	background: transparent;
+	text-align: center;
+	font-size: 15px;
+}
+
+.skill-total,
+.skill-bonus,
+.skill-special,
+.skill-equipment {
+	width: 100% !important;
+}
+
+.equipment-section {
+	margin-bottom: 23px;
+}
+
+.equipment-subtitle {
+	font-size: 16px;
+	margin-bottom: 8px;
+}
+
+.equipment-list {
+	margin-bottom: 15px;
+}
+
+.equipment-row {
+	display: flex;
+	gap: 30px;
+	margin-bottom: 3px;
+}
+
+.equipment-item {
+	flex: 1;
+	font-size: 18px;
+	display: flex;
+	align-items: center;
+}
+
+.equipment-input {
+	flex: 1;
+	border: none;
+	border-bottom: 2px solid #333;
+	background: transparent;
+	margin-left: 8px;
+	font-size: 18px;
+}
+
+.worn-items {
+	margin-bottom: 15px;
+}
+
+.worn-title {
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+
+.worn-row {
+	display: flex;
+	gap: 15px;
+	margin-bottom: 8px;
+}
+
+.worn-item {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	font-size: 18px;
+}
+
+.worn-item label {
+	margin-right: 8px;
+}
+
+.worn-input {
+	flex: 1;
+	border: none;
+	border-bottom: 2px solid #333;
+	background: transparent;
+	font-size: 18px;
+}
+
+.belt-row {
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+	font-size: 18px;
+}
+
+.belt-row label {
+	margin-right: 8px;
+}
+
+.belt-input {
+	flex: 1;
+	border: none;
+	border-bottom: 2px solid #333;
+	background: transparent;
+	font-size: 18px;
+}
+
+.special-items {
+	display: flex;
+	align-items: center;
+	font-size: 18px;
+}
+
+.special-items label {
+	font-weight: bold;
+	margin-right: 8px;
+}
+
+.special-items-input {
+	flex: 1;
+	border: none;
+	border-bottom: 2px solid #333;
+	background: transparent;
+	font-size: 18px;
+}
+
+.footer-section {
+	border-top: 2px solid #333;
+	padding-top: 8px;
+}
+
+.time-exp {
+	display: flex;
+	gap: 30px;
+	margin-bottom: 8px;
+}
+
+.time-field,
+.exp-field {
+	display: flex;
+	align-items: center;
+	font-size: 18px;
+}
+
+.time-field label,
+.exp-field label {
+	margin-right: 8px;
+}
+
+.time-input,
+.exp-input,
+.days-input {
+	border: none;
+	border-bottom: 2px solid #333;
+	background: transparent;
+	width: 120px;
+	font-size: 18px;
+}
+
+.days-field {
+	display: flex;
+	align-items: center;
+	font-size: 18px;
+	padding-left: 75px;
+}
+
+.days-field label {
+	margin-right: 8px;
+}
+
+.spells-section {
+	border: 2px solid #333;
+	height: 100%;
+}
+
+.spells-section h3 {
+	margin: 0;
+	border: none;
+}
+
+.spell-lines {
+	padding: 8px;
+}
+
+.spell-line {
+	display: flex;
+	align-items: center;
+	margin-bottom: 5px;
+	font-size: 18px;
+}
+
+.spell-select {
+	flex: 1;
+	border: none;
+	border-bottom: 2px solid #333;
+	background: transparent;
+	margin-left: 8px;
+	font-size: 18px;
+	font-family: 'Times New Roman', Times, serif;
+	outline: none;
+	min-width: 200px;
+}
+
+.spell-select:focus {
+	background-color: #f8f8f8;
+}
+
+.spell-select:disabled {
+	color: #666;
+	background-color: #ddd;
+}
+
+input {
+	outline: none;
+}
+
+input:focus {
+	background-color: #f8f8f8;
+}
+
+.character-management {
+	margin-top: 30px;
+	background-color: #f8f8f8;
+	border: 2px solid #666;
+	padding: 20px;
+	border-radius: 5px;
+}
+
+.character-management h3 {
+	background-color: #d0d0d0;
+	border: 2px solid #333;
+	padding: 8px 15px;
+	font-size: 21px;
+	margin: 0 0 15px 0;
+	text-align: center;
+}
+
+.character-management h4 {
+	font-size: 18px;
+	margin: 15px 0 10px 0;
+	font-weight: bold;
+}
+
+.save-controls {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	margin-bottom: 15px;
+}
+
+.character-name-input {
+	flex: 1;
+	padding: 8px 12px;
+	border: 2px solid #666;
+	background-color: white;
+	font-size: 16px;
+	font-family: 'Times New Roman', Times, serif;
+}
+
+.save-btn,
+.clear-btn,
+.load-btn,
+.delete-btn {
+	padding: 8px 16px;
+	border: 2px solid #333;
+	background-color: #e0e0e0;
+	font-size: 16px;
+	font-family: 'Times New Roman', Times, serif;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.save-btn:hover,
+.load-btn:hover {
+	background-color: #d0d0d0;
+}
+
+.clear-btn {
+	background-color: #ffdddd;
+	border-color: #cc6666;
+}
+
+.clear-btn:hover {
+	background-color: #ffcccc;
+}
+
+.delete-btn {
+	background-color: #ffdddd;
+	border-color: #cc6666;
+	padding: 4px 8px;
+	font-size: 14px;
+	margin-left: 10px;
+}
+
+.delete-btn:hover {
+	background-color: #ffcccc;
+}
+
+.saved-characters {
+	border: 1px solid #ccc;
+	background-color: white;
+	padding: 10px;
+	max-height: 200px;
+	overflow-y: auto;
+}
+
+.character-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 8px;
+	border-bottom: 1px solid #eee;
+	font-size: 16px;
+}
+
+.character-item:last-child {
+	border-bottom: none;
+}
+
+.character-item:hover {
+	background-color: #f5f5f5;
+}
+
+.character-info {
+	flex: 1;
+	cursor: pointer;
+}
+
+.character-name {
+	font-weight: bold;
+	color: #333;
+}
+
+.character-race {
+	color: #666;
+	font-size: 14px;
+	margin-left: 10px;
+}
+
+.character-actions {
+	display: flex;
+	gap: 5px;
+}
+
+.no-characters {
+	text-align: center;
+	color: #666;
+	font-style: italic;
+	margin: 20px 0;
+}
+
+@media print {
+	body {
+		background-color: white;
+		padding: 0;
+	}
+
+	.character-sheet {
+		box-shadow: none;
+		border: 1px solid #000;
+	}
+
+	.character-management {
+		display: none;
+	}
+
+	input {
+		border: none !important;
+		background: transparent !important;
+	}
+
+	.underline-input,
+	.equipment-input,
+	.worn-input,
+	.belt-input,
+	.special-items-input,
+	.time-input,
+	.exp-input,
+	.days-input,
+	.spell-input {
+		border-bottom: 1px solid #000 !important;
+	}
+}

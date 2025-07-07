@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<link rel="icon" type="image/webp" href="/Middle-earth-quest.webp"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Tolkien Quest Character Sheet</title>
+</head>
+<body>
+<div id="app">
+	<div class="character-sheet">
+		<div class="sheet-header">
+			<div class="character-record">CHARACTER RECORD</div>
+			<div class="header-fields">
+				<div class="name-field">
+					<label>Name:</label>
+					<input type="text" id="character-name" class="underline-input">
+				</div>
+				<div class="race-field">
+					<label>Race:</label>
+					<select id="race-select" class="race-select">
+						<option value="">Select Race</option>
+						<option value="man">Man</option>
+						<option value="elf">Elf</option>
+						<option value="dwarf">Dwarf</option>
+						<option value="hobbit">Hobbit</option>
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<div class="race-description" id="race-description"></div>
+
+		<div class="main-content">
+			<div class="left-column">
+				<div class="stats-section">
+					<h3>STATS</h3>
+					<table class="stats-table">
+						<thead>
+						<tr>
+							<th></th>
+							<th>Stat<br>Value</th>
+							<th>Stat<br>Bonus</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>Strength(St)</td>
+							<td><input type="number" id="strength-value" class="stat-input"></td>
+							<td><input type="number" id="strength-bonus" class="stat-input"></td>
+						</tr>
+						<tr>
+							<td>Agility(Ag)</td>
+							<td><input type="number" id="agility-value" class="stat-input"></td>
+							<td><input type="number" id="agility-bonus" class="stat-input"></td>
+						</tr>
+						<tr>
+							<td>Intelligence(In)</td>
+							<td><input type="number" id="intelligence-value" class="stat-input"></td>
+							<td><input type="number" id="intelligence-bonus" class="stat-input"></td>
+						</tr>
+						</tbody>
+					</table>
+					<div class="endurance-section">
+						<div class="endurance-label">Endurance:</div>
+						<div class="endurance-value">
+							<input type="number" id="endurance" class="stat-input">
+						</div>
+						<div class="endurance-formula">= 20 + (2 x St Stat)</div>
+					</div>
+					<div class="damage-taken">
+						<label>Damage Taken:</label>
+						<input type="number" id="damage-taken" class="underline-input">
+					</div>
+				</div>
+
+				<div class="skills-section">
+					<table class="skills-table">
+						<thead>
+						<tr>
+							<th rowspan="2" class="skills-header">SKILLS</th>
+							<th colspan="9">Bonuses</th>
+						</tr>
+						<tr>
+							<th>Total<br>Bonus</th>
+							<th>=</th>
+							<th>Skill<br>Bonus</th>
+							<th>+</th>
+							<th>Stat<br>Bonus</th>
+							<th>+</th>
+							<th>Equipment<br>Bonuses</th>
+							<th>+</th>
+							<th>Special & Temporary<br>Bonuses</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>Melee OB</td>
+							<td><input type="text" class="skill-total"></td>
+							<td>=</td>
+							<td><input type="text" class="skill-bonus"></td>
+							<td>+</td>
+							<td>__St</td>
+							<td>+</td>
+							<td><input type="text" class="skill-equipment" placeholder="weapon"></td>
+							<td>+</td>
+							<td><input type="text" class="skill-special"></td>
+						</tr>
+						<tr>
+							<td>Missile OB</td>
+							<td><input type="text" class="skill-total"></td>
+							<td>=</td>
+							<td><input type="text" class="skill-bonus"></td>
+							<td>+</td>
+							<td>__Ag</td>
+							<td>+</td>
+							<td><input type="text" class="skill-equipment" placeholder="weapon"></td>
+							<td>+</td>
+							<td><input type="text" class="skill-special"></td>
+						</tr>
+						<tr>
+							<td>DB</td>
+							<td><input type="text" class="skill-total"></td>
+							<td>=</td>
+							<td>N/A</td>
+							<td>+</td>
+							<td>__Ag</td>
+							<td>+</td>
+							<td><input type="text" class="skill-equipment" placeholder="armor"></td>
+							<td>+</td>
+							<td><input type="text" class="skill-special"></td>
+						</tr>
+						<tr>
+							<td>Running</td>
+							<td><input type="text" class="skill-total"></td>
+							<td>=</td>
+							<td>N/A</td>
+							<td>+</td>
+							<td>__Ag</td>
+							<td>+</td>
+							<td><input type="text" class="skill-equipment"></td>
+							<td>+</td>
+							<td><input type="text" class="skill-special"></td>
+						</tr>
+						<tr>
+							<td>General</td>
+							<td><input type="text" class="skill-total"></td>
+							<td>=</td>
+							<td><input type="text" class="skill-bonus"></td>
+							<td>+</td>
+							<td>__Ag</td>
+							<td>+</td>
+							<td><input type="text" class="skill-equipment"></td>
+							<td>+</td>
+							<td><input type="text" class="skill-special"></td>
+						</tr>
+						<tr>
+							<td>Trickery</td>
+							<td><input type="text" class="skill-total"></td>
+							<td>=</td>
+							<td><input type="text" class="skill-bonus"></td>
+							<td>+</td>
+							<td>__In</td>
+							<td>+</td>
+							<td><input type="text" class="skill-equipment"></td>
+							<td>+</td>
+							<td><input type="text" class="skill-special"></td>
+						</tr>
+						<tr>
+							<td>Perception</td>
+							<td><input type="text" class="skill-total"></td>
+							<td>=</td>
+							<td><input type="text" class="skill-bonus"></td>
+							<td>+</td>
+							<td>__In</td>
+							<td>+</td>
+							<td><input type="text" class="skill-equipment"></td>
+							<td>+</td>
+							<td><input type="text" class="skill-special"></td>
+						</tr>
+						<tr>
+							<td>Magical</td>
+							<td><input type="text" class="skill-total"></td>
+							<td>=</td>
+							<td><input type="text" class="skill-bonus"></td>
+							<td>+</td>
+							<td>__In</td>
+							<td>+</td>
+							<td><input type="text" class="skill-equipment"></td>
+							<td>+</td>
+							<td><input type="text" class="skill-special"></td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="equipment-section">
+					<h3>EQUIPMENT:</h3>
+					<div class="equipment-subtitle">In Backpack/Sheathed/Carried (includes meals)</div>
+					<div class="equipment-list">
+						<div class="equipment-row">
+							<div class="equipment-item">1) <input type="text" class="equipment-input"></div>
+							<div class="equipment-item">7) <input type="text" class="equipment-input"></div>
+						</div>
+						<div class="equipment-row">
+							<div class="equipment-item">2) <input type="text" class="equipment-input"></div>
+							<div class="equipment-item">8) <input type="text" class="equipment-input"></div>
+						</div>
+						<div class="equipment-row">
+							<div class="equipment-item">3) <input type="text" class="equipment-input"></div>
+							<div class="equipment-item">9) <input type="text" class="equipment-input"></div>
+						</div>
+						<div class="equipment-row">
+							<div class="equipment-item">4) <input type="text" class="equipment-input"></div>
+							<div class="equipment-item">10) <input type="text" class="equipment-input"></div>
+						</div>
+						<div class="equipment-row">
+							<div class="equipment-item">5) <input type="text" class="equipment-input"></div>
+							<div class="equipment-item">11) <input type="text" class="equipment-input"></div>
+						</div>
+						<div class="equipment-row">
+							<div class="equipment-item">6) <input type="text" class="equipment-input"></div>
+							<div class="equipment-item">12) <input type="text" class="equipment-input"></div>
+						</div>
+					</div>
+					<div class="worn-items">
+						<div class="worn-title">Worn (one of each type):</div>
+						<div class="worn-row">
+							<div class="worn-item">
+								<label>Armor:</label>
+								<input type="text" class="worn-input">
+							</div>
+							<div class="worn-item">
+								<label>Cloak:</label>
+								<input type="text" class="worn-input">
+							</div>
+							<div class="worn-item">
+								<label>Dagger:</label>
+								<input type="text" class="worn-input">
+							</div>
+						</div>
+						<div class="belt-row">
+							<label>Belt & Beltpouch (money, gems, etc.):</label>
+							<input type="text" class="belt-input">
+						</div>
+					</div>
+					<div class="special-items">
+						<label>Special Items:</label>
+						<input type="text" class="special-items-input">
+					</div>
+				</div>
+
+				<div class="footer-section">
+					<div class="time-exp">
+						<div class="time-field">
+							<label>Time (minutes):</label>
+							<input type="text" class="time-input">
+						</div>
+						<div class="exp-field">
+							<label>Experience Points:</label>
+							<input type="text" class="exp-input">
+						</div>
+					</div>
+					<div class="days-field">
+						<label>(days):</label>
+						<input type="text" class="days-input">
+					</div>
+				</div>
+			</div>
+
+			<div class="right-column">
+				<div class="spells-section">
+					<h3>SPELLS: optional</h3>
+					<div class="spell-lines">
+						<div class="spell-line">1 <select class="spell-select" data-slot="1"></select></div>
+						<div class="spell-line">2 <select class="spell-select" data-slot="2"></select></div>
+						<div class="spell-line">3 <select class="spell-select" data-slot="3"></select></div>
+						<div class="spell-line">4 <select class="spell-select" data-slot="4"></select></div>
+						<div class="spell-line">5 <select class="spell-select" data-slot="5"></select></div>
+						<div class="spell-line">6 <select class="spell-select" data-slot="6"></select></div>
+						<div class="spell-line">7 <select class="spell-select" data-slot="7"></select></div>
+						<div class="spell-line">8 <select class="spell-select" data-slot="8"></select></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="character-management">
+		<h3>Character Management</h3>
+		<div class="save-section">
+			<div class="save-controls">
+				<button id="save-character" class="save-btn">Save Character</button>
+				<button id="clear-character" class="clear-btn">Clear Sheet</button>
+			</div>
+		</div>
+
+		<div class="load-section">
+			<h4>Saved Characters</h4>
+			<div id="saved-characters-list" class="saved-characters">
+				<p class="no-characters">No saved characters</p>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>
